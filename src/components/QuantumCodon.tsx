@@ -894,8 +894,8 @@ const footerNavigation = {
           id: "education",
           name: "Education",
           items: [
-            { name: "Academic Training", href: "/education#academic-training" },
-            { name: "Certifications", href: "/education" },
+            { name: "Academic Training", href: "/services/education#academic-training" },
+            { name: "Certifications", href: "/services/education" },
           ],
         },
         {
