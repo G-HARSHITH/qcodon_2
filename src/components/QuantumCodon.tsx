@@ -14,6 +14,8 @@ const OFFERING_ANCHORS: Record<string, string> = {
   "analytical-service": "/#analytical-services",
   "bio-infactic": "/#bioinformatics",
   "regulatory-complaints": "/#regulatory-complaints",
+  "bio-infactic": "/#bio-infactic",
+  "regulatory-compliance": "/services/regulatory-compliance",
   "education": "/#education",
 };
 

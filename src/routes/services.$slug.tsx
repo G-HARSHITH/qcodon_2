@@ -1,6 +1,7 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { getOffering, offerings, type Offering } from "@/lib/services-data";
 import EducationPage from "@/pages/Education";
+import AnalyticalServicesPage from "@/pages/AnalyticalServices";
 import BioMmgPage from "@/pages/BioMmg";
 import BioinformaticsPage from "@/pages/Bioinformatics";
 
@@ -41,12 +42,16 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceDetailPage() {
   const { slug } = Route.useLoaderData() as { slug: string };
+  const o = getOffering(slug);
+  if (!o) throw notFound();
   const o = getOffering(slug)!;
   
   if (o.slug === "education") {
     return <EducationPage />;
   }
 
+  if (o.slug === "analytical-service" || o.slug === "analytical-services") {
+    return <AnalyticalServicesPage />;
   if (o.slug === "bio-mmg") {
     return <BioMmgPage />;
   }
