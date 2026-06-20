@@ -382,13 +382,12 @@ export function QcNavbar() {
             )}
           </div>
 
-          <button
-            type="button"
-            onClick={openContact}
+          <Link
+            to="/contact"
             className="transition-colors text-muted-foreground hover:text-foreground"
           >
             Contact
-          </button>
+          </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -397,13 +396,12 @@ export function QcNavbar() {
             onChange={(checked) => setTheme(checked ? "dark" : "light")}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           />
-          <button
-            type="button"
-            onClick={openContact}
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm bg-accent-blue text-white hover:opacity-90 transition font-semibold shadow-lg shadow-accent-blue/20"
           >
             Connect with us
-          </button>
+          </Link>
         </div>
       </div>
     </header>

@@ -1,12 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
-import ContactPage from "@/pages/Contact";
+import { Toaster } from "sonner";
+import { ContactHero } from "@/components/contact/ContactHero";
+import { ContactChannels } from "@/components/contact/ContactChannels";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { SiteFooter } from "@/components/contact/SiteFooter";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Quantum Codon" },
-      { name: "description", content: "Partner with Quantum Codon. Request the investor deck or schedule a meeting." },
+      {
+        name: "description",
+        content:
+          "Get in touch with the Quantum Codon team. Talk to sales, support, or visit our studio — we reply within one business day.",
+      },
+      { property: "og:title", content: "Contact — Quantum Codon" },
+      {
+        property: "og:description",
+        content:
+          "Tell us about your project and our team will reach out personally.",
+      },
     ],
   }),
   component: ContactPage,
 });
+
+function ContactPage() {
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+      <ContactHero />
+      <ContactChannels />
+      <ContactForm />
+      <SiteFooter />
+      <Toaster position="top-center" richColors />
+    </main>
+  );
+}
