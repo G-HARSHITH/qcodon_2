@@ -154,8 +154,8 @@ export const offerings: Offering[] = [
     ],
   },
   {
-    slug: "regulatory-complaints",
-    title: "Regulatory & Complaints",
+    slug: "regulatory-compliance",
+    title: "Regulatory & Compliance",
     description: "Ensure compliance, quality assurance, and streamlined regulatory processes.",
     icon: ShieldCheck,
     badge: "Compliance & Assurance",

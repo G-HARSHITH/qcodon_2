@@ -13,7 +13,7 @@ const OFFERING_ANCHORS: Record<string, string> = {
   "bio-mmg": "/#bio-mmg",
   "analytical-service": "/#analytical-services",
   "bio-infactic": "/#bio-infactic",
-  "regulatory-complaints": "/#regulatory-complaints",
+  "regulatory-compliance": "/services/regulatory-compliance",
   "education": "/#education",
 };
 
