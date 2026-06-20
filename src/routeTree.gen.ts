@@ -18,6 +18,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesRegulatoryComplianceRouteImport } from './routes/services.regulatory-compliance'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 
@@ -66,6 +67,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRegulatoryComplianceRoute =
+  ServicesRegulatoryComplianceRouteImport.update({
+    id: '/services/regulatory-compliance',
+    path: '/services/regulatory-compliance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/services/$slug',
   path: '/services/$slug',
@@ -89,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/research': typeof ResearchRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/regulatory-compliance': typeof ServicesRegulatoryComplianceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +110,7 @@ export interface FileRoutesByTo {
   '/research': typeof ResearchRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/regulatory-compliance': typeof ServicesRegulatoryComplianceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +125,7 @@ export interface FileRoutesById {
   '/research': typeof ResearchRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/regulatory-compliance': typeof ServicesRegulatoryComplianceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/research'
     | '/industries/$slug'
     | '/services/$slug'
+    | '/services/regulatory-compliance'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/research'
     | '/industries/$slug'
     | '/services/$slug'
+    | '/services/regulatory-compliance'
   id:
     | '__root__'
     | '/'
@@ -157,6 +169,7 @@ export interface FileRouteTypes {
     | '/research'
     | '/industries/$slug'
     | '/services/$slug'
+    | '/services/regulatory-compliance'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +184,7 @@ export interface RootRouteChildren {
   ResearchRoute: typeof ResearchRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesRegulatoryComplianceRoute: typeof ServicesRegulatoryComplianceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -238,6 +252,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/regulatory-compliance': {
+      id: '/services/regulatory-compliance'
+      path: '/services/regulatory-compliance'
+      fullPath: '/services/regulatory-compliance'
+      preLoaderRoute: typeof ServicesRegulatoryComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/services/$slug'
@@ -267,6 +288,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResearchRoute: ResearchRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
+  ServicesRegulatoryComplianceRoute: ServicesRegulatoryComplianceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
