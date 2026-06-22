@@ -1,15 +1,16 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { getOffering, offerings, type Offering } from "@/lib/services-data";
 import EducationPage from "@/pages/Education";
+import DrugDiscoveryPage from "@/pages/DrugDiscovery";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const offering = getOffering(params.slug);
     if (!offering) throw notFound();
-    return { offering };
+    return { slug: params.slug };
   },
   head: ({ loaderData }) => {
-    const o = loaderData?.offering;
+    const o = getOffering(loaderData?.slug || "");
     if (!o) return { meta: [{ title: "Service — Quantum Codon" }] };
     return {
       meta: [
@@ -38,10 +39,16 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetailPage() {
-  const { offering: o } = Route.useLoaderData() as { offering: Offering };
+  const { slug } = Route.useLoaderData() as { slug: string };
+  const o = getOffering(slug);
+  if (!o) return null;
   
   if (o.slug === "education") {
     return <EducationPage />;
+  }
+
+  if (o.slug === "drug-discovery") {
+    return <DrugDiscoveryPage />;
   }
 
   const Icon = o.icon;
